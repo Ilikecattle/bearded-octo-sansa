@@ -24,7 +24,7 @@ struct Object {
 
 struct Object* initObject(int, int, int, struct animation*);
 void setXY(struct Object*, int, int);
-void killObject(struct Object*);
+void killObject(struct Object*, alt_up_pixel_buffer_dma_dev*);
 void setStats(struct Object*, int);
 void addStats(struct Object*, struct animation*);
 #endif /* OBJECT_H_ */

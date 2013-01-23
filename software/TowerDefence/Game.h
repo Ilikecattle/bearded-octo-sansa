@@ -20,7 +20,7 @@
 #include "Env.h"
 #include "Frame.h"
 
-alt_up_pixel_buffer_dma_dev* pixel_buffer;
 alt_up_char_buffer_dev* char_buffer;
 extern int swap;
+static int start = 1;
 #endif /* GAME_H_ */

@@ -30,7 +30,7 @@ struct Object* initObject(int pos_x, int pos_y, int size, struct animation* s1) 
 /*
  * destructor of object
  */
-void killObject(struct Object* this) {
+void killObject(struct Object* this, alt_up_pixel_buffer_dma_dev* pixel_buffer) {
 	int i;
 	this->currImg = NULL;
 	this->animate = NULL;

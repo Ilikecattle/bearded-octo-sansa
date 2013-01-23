@@ -112,7 +112,7 @@ void backgroundAnimation(alt_up_pixel_buffer_dma_dev* pixel_buffer, int* coord) 
 /*helper function to convert 32 bit color code to 16 bit color*/
 
 int getColor(int red, int green, int blue) {
-	return (int)(red*512 + (green*32) + blue/4);
+	return (int)(red*255 + (green*7) + blue/4);
 	//return red*2048+green*32+blue;
 }
 int getColor555(int color555) {

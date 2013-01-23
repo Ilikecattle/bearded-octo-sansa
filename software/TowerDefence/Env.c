@@ -9,12 +9,12 @@
  The attribute o stores all objects that exist in the environment.
  The capacity is now set to 30, which we may require more space later.
  */
-struct Env* initEnv() {
+struct Env* initEnv(alt_up_pixel_buffer_dma_dev* p) {
 	struct Env* env = (struct Env*)malloc(sizeof(struct Env));
 	env->o = (struct Object**)malloc(30*sizeof(struct Object*));
 	env->size = 0;
-	env->start = 1;
 	env->coord[0] = env->coord[1] = 150;
+	env->pixel_buffer = p;
 	return env;
 }
 /*
@@ -29,7 +29,7 @@ void addToEnv(struct Env* e, struct Object* obj) {
  * Removing an object from the environment, which will stop the interaction and animation of
  * the object and clear the memory
  */
-int removeFromEnv(struct Env* env, struct Object* obj) {
+void removeFromEnv(struct Env* env, struct Object* obj) {
 	int i, found = 0;
 	for(i = 0; i < env->size; i++) {
 
@@ -39,5 +39,5 @@ int removeFromEnv(struct Env* env, struct Object* obj) {
 			found = 1;
 		}
 	} env->size--;
-	killObject(obj);
+	killObject(obj, env->pixel_buffer);
 }
